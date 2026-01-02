@@ -90,7 +90,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 /* ---------- View Route ---------- */
 app.get("/view/:token", async (req, res) => {
   const media = await Media.findOne({ token: req.params.token });
-  if (!media || media.viewed) return res.sendFile(path.join(__dirname, "public/expired.html"));
+  if (!media || media.viewed) return res.sendFile(path.join(__dirname, "public", "expired.html"));
 
   res.send(`
 <!DOCTYPE html>
